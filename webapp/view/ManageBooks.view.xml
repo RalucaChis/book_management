@@ -1,0 +1,48 @@
+<mvc:View
+        controllerName="org.ubb.books.controller.ManageBooks"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:core="sap.ui.core"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns="sap.m">
+    <Panel
+            class="sapUiResponsiveMargin"
+            width="auto">
+        <content>
+            <VBox fitContainer="false">
+                <HBox>
+                    <Button
+							text="{i18n>addBookButton}"
+							type="Accept"
+							press="onAddBook"/>
+					<ToolbarSpacer width="20px"/>
+					<Button
+							id="updateBookButton"
+							text="{i18n>updateBookButton}"
+							press="onUpdateBook"/>
+					<ToolbarSpacer width="20px"/>
+					<Button
+							text="{i18n>deleteBookButton}"
+							type="Attention"
+							press="onDeleteBook"
+					/>
+                </HBox>
+                <Label text="{i18n>isbn}"/>
+                <Input id="isbn" placeholder="{i18n>isbnPlaceholder}" maxLength="13"/>
+                <Label text="{i18n>title}"/>
+                <Input id="title" placeholder="{i18n>titlePlaceholder}"/>
+                <Label text="{i18n>author}"/>
+                <Input id="author" placeholder="{i18n>authorPlaceholder}"/>
+                <Label text="{i18n>published}"/>
+                <DateTimePicker id="publishedDate" displayFormat="short" valueFormat="yyyy-MM-ddTHH:mm"
+                                change="handleChange" class="sapUiSmallMarginBottom"/>
+                <Label text="{i18n>lang}"/>
+                <Input id="language" placeholder="{i18n>langPlaceholder}"/>
+                <Label text="{i18n>total}"/>
+                <Input id="totalBooks" placeholder="{i18n>totalPlaceholder}"/>
+                <Label text="{i18n>available}"/>
+                <Input id="availableBooks" placeholder="{i18n>availablePlaceholder}"/>
+                <Label/>
+            </VBox>
+        </content>
+    </Panel>
+</mvc:View>

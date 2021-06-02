@@ -1,0 +1,81 @@
+<mvc:View
+        controllerName="org.ubb.books.controller.App"
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc"
+		xmlns:tnt="sap.tnt"
+		xmlns:html="http://www.w3.org/1999/xhtml"
+        displayBlock="true">
+    <Shell>
+        <App>
+            <pages>
+                <Page showHeader="false">
+					<tnt:ToolHeader>
+						<ToolbarSpacer width="20px"/>
+						<html:p class="text-header" style="font-size:25px">Online Library</html:p>
+						<ToolbarSpacer width="700px" />
+                        <Button
+                                text="{i18n>showList}"
+                                press="handleNav">
+                            <layoutData>
+                                <FlexItemData growFactor="1"/>
+                            </layoutData>
+                            <customData>
+                                <core:CustomData
+                                        key="target"
+                                        value="p1"/>
+                            </customData>
+                        </Button>
+						<Button
+								text="{i18n>addBook}"
+								press="handleNav">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+							<customData>
+								<core:CustomData
+										key="target"
+										value="p2" />
+							</customData>
+						</Button>
+						<Button
+								text="{i18n>borrowedBookList}"
+								press="handleNav">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+							<customData>
+								<core:CustomData
+										key="target"
+										value="p4" />
+							</customData>
+						</Button>
+                    </tnt:ToolHeader>
+                    <content>
+						<NavContainer
+								id="navCon"
+								width="98%"
+								height="100em"
+								class="navContainerControl sapUiSmallMarginBottom">
+							<Page
+									id="p1"
+									title="{i18n>bookSection}" >
+								<mvc:XMLView viewName="org.ubb.books.view.BookTable"/>
+							</Page>
+							<Page
+									id="p2"
+									title="{i18n>addSection}" >
+								<mvc:XMLView viewName="org.ubb.books.view.ManageBooks"/>
+							</Page>
+							<Page
+									id="p4"
+									title="{i18n>bBookSection}" >
+								<mvc:XMLView viewName="org.ubb.books.view.BorrowedBookTable"/>
+							</Page>
+						</NavContainer>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
